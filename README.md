@@ -25,7 +25,7 @@ In the Jupyter notebook `2-process-categories-out.ipynb`, the large TSV file cre
 
 In the Jupyter notebook `3-abstracts-export.ipynb`, the `per_year` datasets are unpacked and merged, then two sets of files are created for 1) just abstracts and 2) just titles, with one title or abstract per line. This creates zipped files for all items (too large to upload on GitHub) and a random sample of 250k items, which can be found in `processed_data/DUMP_DATE/arxiv-abstracts-250k.txt.zip` and `processed_data/DUMP_DATE/arxiv-titles-250k.txt.zip`.
 
-### Step 5: Unpack datasets and analyze
+### Step 4: Unpack datasets and analyze
 
 In the Jupyter notebook `4-analysis-examples.ipynb`, the `per_year` datasets are unpacked and merged to one large dataframe, which is then analyzed in various ways. If you are looking to use this data to do an analysis on the entire Arxiv, you may find this notebook useful to start.
 
