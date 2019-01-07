@@ -4,7 +4,7 @@ This is a full archive of metadata about papers on arxiv.org, including Jupyter 
 
 The code in the first two Jupyter notebooks was used to generate the dumps from raw data (which is not included in this repository). The code in `4-analysis-examples.ipynb` shows you how to unpack the processed data in this repository and runs a number of sample analyses on the dataset.
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2532042.svg)](https://doi.org/10.5281/zenodo.2532042)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1463242.svg)](https://doi.org/10.5281/zenodo.1463242)
 
 If you use this data or code, please cite it as (or use the `citation.bib` file):
 
