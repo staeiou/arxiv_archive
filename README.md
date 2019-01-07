@@ -8,7 +8,7 @@ The code in the first two Jupyter notebooks was used to generate the dumps from 
 
 If you use this data or code, please cite it as (or use the `citation.bib` file):
 
-``` R. Stuart Geiger (2019). "ArXiV Archive: A tidy and full archive of metadata for papers on arxiv.org, 1993-2019." Zenodo. http://doi.org/10.5281/zenodo.1463242  ```
+``` R. Stuart Geiger (2019). "ArXiV Archive: A tidy and complete archive of metadata for papers on arxiv.org, 1993-2019." Zenodo. http://doi.org/10.5281/zenodo.1463242  ```
 
 
 ## Data documentation
