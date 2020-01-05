@@ -1,14 +1,14 @@
 # arxiv_archive
 
-This is a full archive of metadata about papers on arxiv.org, including Jupyter notebooks for unpacking and analyzing it. Note that if you just want to work with the data, it is best to download [the zip folder for this repository](https://github.com/staeiou/arxiv_archive/archive/master.zip) as opposed to running `git clone` (which will take up about 2x size on disk due to the git history). 
+This is a full archive of metadata about papers on arxiv.org, including the python scripts used to process the dataset and Jupyter notebooks for unpacking and analyzing it. Note that if you just want to work with the data, it is best to download [the zip folder for this repository](https://github.com/staeiou/arxiv_archive/archive/master.zip) as opposed to running `git clone` (which will take up about 2x size on disk due to the git history). 
 
-The code in the first two Jupyter notebooks was used to generate the dumps from raw data (which is not included in this repository). The code in `4-analysis-examples.ipynb` shows you how to unpack the processed data in this repository and runs a number of sample analyses on the dataset.
+I used `oai-harvest` to collect metadata for every paper on arxiv.org from their OAI endpoint, which stores the metadata for each paper in a separate XML file. The python scripts in `/code/` include scripts that were used to generate the dumps from the original ArXiV XML OAI data harvests. These XML files are not included in this repository, but the scripts are included for purposes of reproducibility and open science. The code in `/code/analysis-examples.ipynb` shows you how to unpack the processed data in this repository and runs a number of sample analyses on the dataset. More details about the harvesting and processing approach are below. 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1463242.svg)](https://doi.org/10.5281/zenodo.1463242)
 
 If you use this data or code, please cite it as (or use the `citation.bib` file):
 
-``` R. Stuart Geiger (2019). "ArXiV Archive: A Tidy and Complete Archive of Metadata for Papers on arxiv.org." Zenodo. http://doi.org/10.5281/zenodo.1463242  ```
+``` R. Stuart Geiger (2020). "ArXiV Archive: A Tidy and Complete Archive of Metadata for Papers on arxiv.org." Zenodo. http://doi.org/10.5281/zenodo.1463242  ```
 
 
 # Data documentation
@@ -56,16 +56,16 @@ Arxiv's main permitted means of bulk downloading article metadata is through its
 
 ### Step 1: Process XML files
 
-In the Jupyter notebook `1-process-xml-files.ipynb`, the individual XML files are processed into a single large Pandas DataFrame, which is stored in TSV and pickle formats. These files are too large to be uploaded here.
+In the python script `/code/1-process-xml-files.ipynb`, the individual XML files are processed into a single large Pandas DataFrame, which is stored in TSV and pickle formats. These files are too large to be uploaded here.
 
 ### Step 2: Process categories and output to per_year and per_category TSVs
 
-In the Jupyter notebook `2-process-categories-out.ipynb`, the large TSV file created in step 1 is parsed and separated into two different batched outputs in the `processed_data/per_year` and `processed_data/per_category` folder. 
+In the python script `/code/2-process-categories-out.ipynb`, the large TSV file created in step 1 is parsed and separated into two different batched outputs in the `processed_data/per_year` and `processed_data/per_category` folder. 
 
 ### Step 3: Export raw titles and abstracts
 
-In the Jupyter notebook `3-abstracts-export.ipynb`, the `per_year` datasets are unpacked and merged, then two sets of files are created for 1) just abstracts and 2) just titles, with one title or abstract per line. This creates zipped files for all items (too large to upload on GitHub) and a random sample of 250k items, which can be found in `processed_data/DUMP_DATE/arxiv-abstracts-250k.txt.zip` and `processed_data/DUMP_DATE/arxiv-titles-250k.txt.zip`.
+In the python script `/code/3-abstracts-export.ipynb`, the `per_year` datasets are unpacked and merged, then two sets of files are created for 1) just abstracts and 2) just titles, with one title or abstract per line. This creates zipped files for all items (too large to upload on GitHub) and a random sample of 250k items, which can be found in `processed_data/DUMP_DATE/arxiv-abstracts-250k.txt.zip` and `processed_data/DUMP_DATE/arxiv-titles-250k.txt.zip`.
 
 ### Step 4: Unpack datasets and analyze
 
-In the Jupyter notebook `4-analysis-examples.ipynb`, the `per_year` datasets are unpacked and merged to one large dataframe, which is then analyzed in various ways. If you are looking to use this data to do an analysis on the entire Arxiv, you may find this notebook useful to start.
+In the Jupyter notebook `/code/analysis-examples.ipynb`, the `per_year` datasets are unpacked and merged to one large dataframe, which is then analyzed in various ways. If you are looking to use this data to do an analysis on the entire Arxiv, you may find this notebook useful to start.
