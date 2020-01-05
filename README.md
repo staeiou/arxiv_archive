@@ -1,6 +1,6 @@
 # arxiv_archive
 
-This is a full archive of metadata about papers on arxiv.org, including the python scripts used to process the dataset and Jupyter notebooks for unpacking and analyzing it. Note that if you just want to work with the data, it is best to download [the zip folder for this repository](https://github.com/staeiou/arxiv_archive/archive/master.zip) as opposed to running `git clone` (which will take up about 2x size on disk due to the git history). 
+This is a full archive of metadata about papers on arxiv.org, from the start of the site in 1993 to the end of 2019, including the python scripts used to process the dataset and Jupyter notebooks for unpacking and analyzing it. Note that if you just want to work with the data, it is best to download [the zip folder for this repository](https://github.com/staeiou/arxiv_archive/archive/master.zip) as opposed to running `git clone` (which will take up about 2x size on disk due to the git history). 
 
 I used `oai-harvest` to collect metadata for every paper on arxiv.org from their OAI endpoint, which stores the metadata for each paper in a separate XML file. The python scripts in `/code/` include scripts that were used to generate the dumps from the original ArXiV XML OAI data harvests. These XML files are not included in this repository, but the scripts are included for purposes of reproducibility and open science. The code in `/code/analysis-examples.ipynb` shows you how to unpack the processed data in this repository and runs a number of sample analyses on the dataset. More details about the harvesting and processing approach are below. 
 
@@ -52,7 +52,7 @@ These files are in `processed_data/DUMP_DATE/per_year/YEAR.tsv.zip` and `process
 
 ### Step 0: Query from arxiv.org
 
-Arxiv's main permitted means of bulk downloading article metadata is through its [OAI-PMH API](https://arxiv.org/help/bulk_data). I used the [oai-harvest](https://github.com/bloomonkey/oai-harvest) program to download this, which stores the records in one XML file per paper, for a total of about 1.4 million files. These files are too large to be uploaded here.
+Arxiv's main permitted means of bulk downloading article metadata is through its [OAI-PMH API](https://arxiv.org/help/bulk_data). I used the [oai-harvest](https://github.com/bloomonkey/oai-harvest) program to download this, which stores the records in one XML file per paper, for a total of about 1.4 million files. These files are too large to be uploaded here. The oai-harvest logs and configuration details are in `/logs/`. The last run was completed on 2020-01-02 at 02:51:30 GMT. Note that papers can be updated at any time.
 
 ### Step 1: Process XML files
 
